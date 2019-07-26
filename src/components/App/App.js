@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Gallery from '../Gallery/Gallery';
+import Details from '../Details/Details'
+import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -13,10 +15,12 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Movie List</h1>
-        <Gallery />
-        {JSON.stringify(this.props.reduxStore.movies
-        )}
-        <Route Details path="/details" component={Details} />
+        <Router >
+        <Route Gallery path="/" exact component={Gallery}/>
+        <Route Details path="/details" component={Details}/>
+        {/* <Route Details path="/details" component={Details} /> */}
+      
+        </Router >
       </div>
     );
   }
