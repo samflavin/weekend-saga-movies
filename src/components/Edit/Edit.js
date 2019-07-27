@@ -7,6 +7,7 @@ class Details extends Component {
         this.props.history.push('/');
     }
     editMovie = (event) => {
+        this.props.dispatch({ type: 'EDIT_MOVIES', payload: this.state.newEdit })
         this.props.history.push('/');
     }
 
@@ -18,8 +19,8 @@ class Details extends Component {
 
     handleChangeFor = (propertyName, event) => {
         this.setState({
-            newFeeling: {
-                ...this.state.newFeeling,
+            newEdit: {
+               // ...this.state.newEdit,
                 [propertyName]: event.target.value
             }
         })
@@ -29,14 +30,17 @@ class Details extends Component {
     render() {
         //assign item to be concis
 
+        console.log(this.state);
+
         return (
             <div className="App">
         <button>Cancel</button> 
         <button onClick={this.editMovie}>Save</button>
           
          <p>Edit</p>
-         <form onSubmit="editMovie">
-         <textarea></textarea>
+         <form>
+        <textarea type="text" value={this.state.newEdit.comments}
+        onChange={(event) => this.handleChangeFor('comments', event)}></textarea>
          </form>
 
             </div>
