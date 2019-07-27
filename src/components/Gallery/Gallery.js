@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 class Gallery extends Component {
 
@@ -8,32 +9,14 @@ class Gallery extends Component {
         this.props.dispatch({ type: 'FETCH_MOVIES' })
     }
 
-    // sends us to details route
-    handleClick=(event)=>{
-        console.log('you clicked', event)
- // this.props.dispatch({ type: 'FETCH_DETAILS', payload: {id: this.props.item.id} })
-        this.props.history.push('/details');
-
-    }
 
     // Renders the entire app on the DOM
     render() {
         return (
             <div className="App">
-                {
-                    this.props.reduxStore.movies.map(item => (
-                        <div key={item.id}>
-                            <p>{item.title}</p>
-                            <p>{item.description}</p>
-                            <img value={item.id} src={item.poster} alt={item.description} onClick={this.handleClick}/>
-                            {/* <p>Show: {item.showname}</p> */}
-                            {/* {JSON.stringify(this.props.reduxStore.characterList)} */}
-                            {/* <SelectTag selected={item.tag_id} /> */}
-                           
-                        </div>
-                    ))
-
-                }
+                {this.props.reduxStore.movies.map(item => 
+                        <GalleryItem key={item.id} item={item} history={this.props.history}/>
+                 ) }
             </div>
         );
     }
