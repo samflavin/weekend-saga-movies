@@ -5,7 +5,7 @@ class Details extends Component {
 
     //Dispatch to rootSaga to get our movie details from DB
     componentDidMount() {
-        this.props.dispatch({ type: 'FETCH_DETAILS' })
+    //this.props.dispatch({ type: 'FETCH_DETAILS' })
     }
 
     // Renders the details of the movies clicked

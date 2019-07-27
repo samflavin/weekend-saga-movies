@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+
+
 
 // GalleryItem is not getting anything from redux, getting props from parent
 class GalleryItem extends Component {
@@ -6,8 +10,8 @@ class GalleryItem extends Component {
 
     // sends us to details route
     handleClick = (event) => {
-        console.log('you clicked', this.props.item.id)
-        // this.props.dispatch({ type: 'FETCH_DETAILS', payload: {id: this.props.item.id} })
+        console.log('you clicked', this.props.item.id);
+        this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.item.id});
         this.props.history.push('/details');
     }
 
@@ -23,5 +27,9 @@ class GalleryItem extends Component {
         );
     }
 }
+const putReduxStoreOnProps = (reduxStore) => ({
+    reduxStore
+})
 
-export default GalleryItem;
+
+export default connect(putReduxStoreOnProps)(GalleryItem);

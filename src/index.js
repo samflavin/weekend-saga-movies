@@ -29,9 +29,11 @@ function* fetchMovies() {
     }
 }
 
-function* fetchDetails() {
+function* fetchDetails(action) {
+
     try {
-        const response = yield Axios.get(`/movie/details/${id}`);
+        console.log(action.payload);
+        const response = yield Axios.get(`/movie/details/${action.payload}`);
         yield put({ type: 'SET_DETAILS', payload: response.data })
 
     } catch (error) {
