@@ -3,7 +3,12 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
-    
+    handleClick = (event) => {
+        this.props.history.push('/');
+    }
+    editPage = (event) => {
+        this.props.history.push('/edit');
+    }
 
     render() {
         //assign item to be concis
@@ -11,9 +16,9 @@ class Details extends Component {
         return (
             <div className="App">
                 <header>
-                    <button>Back to List</button>
+                    <button onClick={this.handleClick}>Back to List</button>
                     &nbsp;
-                    <button>Edit</button>
+                    <button onClick={this.editPage}>Edit</button>
                 </header>
                 <h1>Details</h1>
                

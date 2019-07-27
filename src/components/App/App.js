@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './App.css';
 import Gallery from '../Gallery/Gallery';
-import Details from '../Details/Details'
+import Details from '../Details/Details';
+import Edit from "../Edit/Edit";
 import { HashRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
@@ -18,6 +19,7 @@ class App extends Component {
         <Router >
         <Route Gallery path="/" exact component={Gallery}/>
         <Route Details path="/details" component={Details}/>
+        <Route Edit path="/edit" component={Edit}/>
         {/* <Route Details path="/details" component={Details} /> */}
       
         </Router >
