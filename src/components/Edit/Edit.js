@@ -7,13 +7,16 @@ class Details extends Component {
         this.props.history.push('/');
     }
     editMovie = (event) => {
-        this.props.dispatch({ type: 'EDIT_MOVIES', payload: this.state.newEdit })
+        console.log(this.state.newEdit)
+        event.preventDefault();
+        this.props.dispatch({ type: 'EDIT_MOVIES', payload: this.state.newEdit})
         this.props.history.push('/');
     }
-
+//fix state 
     state = {
         newEdit: {
-            comments: ''
+            comments: '',
+            movieTitle: ''
         }
     }
 
@@ -38,8 +41,12 @@ class Details extends Component {
         <button onClick={this.editMovie}>Save</button>
           
          <p>Edit</p>
+        <textarea  placeholder="Movie" value={this.state.newEdit.movieTitle}
+                    onChange={(event) => this.handleChangeFor('movieTitle', event)}>Movie</textarea>
+
          <form>
-        <textarea type="text" value={this.state.newEdit.comments}
+   
+         <textarea placeholder="Description"type="text" value={this.state.newEdit.comments}
         onChange={(event) => this.handleChangeFor('comments', event)}></textarea>
          </form>
 
