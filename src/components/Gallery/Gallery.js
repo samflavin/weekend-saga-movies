@@ -16,7 +16,9 @@ class Gallery extends Component {
             <div className="App">
                 {this.props.reduxStore.movies.map(item => 
                         <GalleryItem key={item.id} item={item} history={this.props.history}/>
+                        
                  ) }
+                
             </div>
         );
     }

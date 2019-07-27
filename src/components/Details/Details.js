@@ -3,12 +3,7 @@ import { connect } from 'react-redux';
 
 class Details extends Component {
 
-    //Dispatch to rootSaga to get our movie details from DB
-    componentDidMount() {
-    // this.props.dispatch({ type: 'FETCH_DETAILS' })
-    }
-
-    // Renders the details of the movies clicked
+    
 
     render() {
         //assign item to be concis
@@ -21,8 +16,15 @@ class Details extends Component {
                     <button>Edit</button>
                 </header>
                 <h1>Details</h1>
-             
-               {JSON.stringify(this.props.reduxStore.genres)}
+               
+                {this.props.reduxStore.genres.map((item, i) =>
+                    <ul key={i}>
+                    <p>Genre: {item.name}</p>
+                    <img src={item.poster} alt={item.description}/>
+                    <li>{item.description}</li>
+                    </ul>
+                )}
+                
           
             
             </div>
