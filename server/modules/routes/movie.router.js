@@ -27,6 +27,21 @@ router.get('/info', (req, res) => {
         })
 })
 
+router.get(`/details/${id}`, (req, res) => {
+    const sqlText =`select genres.name from movies_genres
+                    join genres on genres.id = movies_genres.genre_id
+                    where movie_id =${id};`;
+
+    pool.query(sqlText)
+        .then((response) => {
+            res.send(response.rows)
+        })
+        .catch((error) => {
+            console.log(`error getting movies`, error);
+            res.sendStatus(500)
+        })
+})
+
 router.get('/show', (req, res) => {
     const sqlText = `select * from "show"`;
     pool.query(sqlText)

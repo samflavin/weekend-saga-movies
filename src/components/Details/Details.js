@@ -13,8 +13,14 @@ class Details extends Component {
     render() {
         return (
             <div className="App">
+                <header>
+                    <button>Back to List</button>
+                    &nbsp;
+                    <button>Edit</button>
+                </header>
                 <h1>Details</h1>
                <p>Hello there!</p>
+               {JSON.stringify(this.props.reduxStore.genres)}
             </div>
         );
     }
