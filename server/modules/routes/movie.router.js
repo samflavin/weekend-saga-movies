@@ -30,9 +30,10 @@ router.get('/info', (req, res) => {
 router.get(`/details/:id`, (req, res) => {
 
     let movieId = req.params.id;
-    const sqlText =`select genres.name from movies_genres
-                    join genres on genres.id = movies_genres.genre_id
-                    where movie_id =$1;`;
+    const sqlText =`select genres.name, movies.title, movies.description, movies.poster from movies_genres
+join genres on genres.id = movies_genres.genre_id
+join movies on movies.id = movies_genres.movie_id
+where movie_id = $1;`;
     const values =[movieId]
     pool.query(sqlText, values)
         .then((response) => {

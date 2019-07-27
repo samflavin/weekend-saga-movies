@@ -5,12 +5,14 @@ class Details extends Component {
 
     //Dispatch to rootSaga to get our movie details from DB
     componentDidMount() {
-    //this.props.dispatch({ type: 'FETCH_DETAILS' })
+    // this.props.dispatch({ type: 'FETCH_DETAILS' })
     }
 
     // Renders the details of the movies clicked
 
     render() {
+        //assign item to be concis
+
         return (
             <div className="App">
                 <header>
@@ -19,8 +21,10 @@ class Details extends Component {
                     <button>Edit</button>
                 </header>
                 <h1>Details</h1>
-               <p>Hello there!</p>
+             
                {JSON.stringify(this.props.reduxStore.genres)}
+          
+            
             </div>
         );
     }
