@@ -6,13 +6,16 @@ class Details extends Component {
     handleClick = (event) => {
         this.props.history.push('/');
     }
+
+    //dispatche new state and takes us to home view
     editMovie = (event) => {
         console.log(this.state.newEdit)
         event.preventDefault();
         this.props.dispatch({ type: 'EDIT_MOVIES', payload: this.state.newEdit})
         this.props.history.push('/');
     }
-//fix state 
+
+    //state set throght redux store
     state = {
         newEdit: {
             movie_id: this.props.reduxStore.genres.movie_id,
@@ -21,6 +24,7 @@ class Details extends Component {
         }
     }
 
+    
     handleChangeFor = (propertyName, event) => {
         this.setState({
             newEdit: {
@@ -32,9 +36,6 @@ class Details extends Component {
 
 
     render() {
-        //assign item to be concis
-
-        console.log(this.state);
 
         return (
             <div className="App">

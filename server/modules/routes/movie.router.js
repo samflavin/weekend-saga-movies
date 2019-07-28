@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../pool')
 
-
+// get all movies
 router.get('/info', (req, res) => {
     const sqlText = `select * from movies order by id`;
 
@@ -35,6 +35,7 @@ where movie_id = $1;`;
         })
 })
 
+//edit movie description by targeting id
 router.put(`/edit/:id`, (req, res) => {
     console.log(req.body)
     const sqlText = `update movies set description = $1, title = $2 where id = $3;`;

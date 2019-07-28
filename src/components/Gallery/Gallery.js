@@ -12,6 +12,8 @@ class Gallery extends Component {
 
     // Renders the entire app on the DOM
     render() {
+
+    //loop though db
         return (
             <div className="App">
                 {this.props.reduxStore.movies.map(item => 

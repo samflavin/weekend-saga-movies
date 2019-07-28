@@ -11,24 +11,21 @@ class Details extends Component {
     }
 
     render() {
-        //assign item to be concis
-
+     
         return (
+
             <div className="App">
-                <header>
+                    <header>
                     <button onClick={this.handleClick}>Back to List</button>
                     &nbsp;
                     <button onClick={this.editPage}>Edit</button>
-                </header>
+                    </header>
                 <h1>Details</h1>
                     <div>
-                    <p>Genre: {this.props.reduxStore.genres.name}</p>
-                    <img src={this.props.reduxStore.genres.poster} alt={this.props.reduxStore.genres.description}/>
-                    <p>{this.props.reduxStore.genres.description}</p>
+                        <p>Genre: {this.props.reduxStore.genres.name}</p>
+                        <img src={this.props.reduxStore.genres.poster} alt={this.props.reduxStore.genres.description}/>
+                        <p>{this.props.reduxStore.genres.description}</p>
                     </div>
-                
-                
-          
             
             </div>
         );

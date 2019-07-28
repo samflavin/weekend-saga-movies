@@ -8,7 +8,7 @@ import { connect } from 'react-redux';
 class GalleryItem extends Component {
 
 
-    // sends us to details route
+    // sends to details route
     handleClick = (event) => {
         console.log('you clicked', this.props.item.id);
         this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.item.id});
