@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GalleryItem from '../GalleryItem/GalleryItem';
 
+
 class Gallery extends Component {
 
     // Calls to saga to get movies from DB
