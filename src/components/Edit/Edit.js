@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Details extends Component {
 
     handleClick = (event) => {
-        this.props.history.push('/');
+        this.props.history.push('/details');
     }
 
     //dispatche new state and takes us to home view
@@ -39,13 +39,13 @@ class Details extends Component {
 
         return (
             <div className="App">
-        <button>Cancel</button> 
+        <button onClick={this.handleClick}>Cancel</button> 
         <button onClick={this.editMovie}>Save</button>
           
                 <p>Edit</p> 
              <form>
         <textarea  placeholder="Movie" 
-                    onChange={(event) => this.handleChangeFor('title', event)}>Movie</textarea>
+                    onChange={(event) => this.handleChangeFor('title', event)}></textarea>
 
         
    
