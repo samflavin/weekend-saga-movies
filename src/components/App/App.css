@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   background-color: darkred;
+   color: blanchedalmond
 }
 
 
@@ -7,11 +10,14 @@
   background-color: #222;
   height: 150px;
   padding: 20px;
-  color: white;
+  color: white; 
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border: solid
 }
 
 .App-title {
   font-size: 1.5em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .App-intro {
@@ -21,4 +27,56 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.grid-container {
+  display: inline-grid;
+ 
+}
+
+.grid-item {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: rgb(190, 36, 36);
+  color: black;
+  
+    border-width:25px;  
+    border-style:outset;
+    display:block;
+
+}
+
+img {
+  border-radius: 10%;
+  border-width:5px;  
+    border-style: solid
+}
+
+h1 {
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.title {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 25px;
+  font-stretch: expanded;
+  text-decoration: underline overline dotted;
+  text:bold
+}
+
+.description {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.zoom {
+ 
+ 
+  transition: transform .5s; /* Animation */
+  
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }

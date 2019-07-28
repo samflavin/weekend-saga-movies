@@ -13,16 +13,19 @@ class GalleryItem extends Component {
         console.log('you clicked', this.props.item.id);
         this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.item.id});
         this.props.history.push('/details');
+
     }
+
+   
 
     render() {
         //define item to make code more concise
         let item = this.props.item;
         return (
-            <div >
-                <p>{item.title}</p>
-                <p>{item.description}</p>
-                <img value={item.id} src={item.poster} alt={item.description} onClick={this.handleClick} />
+            <div className="grid-item">
+                <p className="title">{item.title}</p>
+                <p className="description">{item.description}</p>
+                <img className="zoom" value={item.id} src={item.poster} alt={item.description} onClick={this.handleClick} />
             </div>
         );
     }

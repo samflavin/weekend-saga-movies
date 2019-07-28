@@ -15,7 +15,7 @@ class Gallery extends Component {
 
     //loop though db
         return (
-            <div className="App">
+            <div  >
                 {this.props.reduxStore.movies.map(item => 
                         <GalleryItem key={item.id} item={item} history={this.props.history}/>
                         
