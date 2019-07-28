@@ -37,6 +37,7 @@ function* fetchDetails(action) {
         console.log(action.payload);
         const response = yield Axios.get(`/movie/details/${action.payload}`);
         yield put({ type: 'SET_DETAILS', payload: response.data })
+        console.log(response.data);
 
     } catch (error) {
         console.log('error getting movies', error);
@@ -47,10 +48,11 @@ function* fetchDetails(action) {
 function* editMovies(action) {
 
     try {
-        console.log(action.payload.title);
-        const response = yield Axios.get(`/movie/edit/${action.payload.title}`);
-        yield put({ type: 'SET_EDIT', payload: response.data })
+        console.log(action.payload);
+        const response = yield Axios.put(`/movie/edit/${action.payload.movie_id}`, action.payload);
+        yield put({ type: 'FETCH_MOVIES'})
         //send dispatch to rerender new edit    
+        HTMLFormControlsCollection.log(response)
     } catch (error) {
         console.log('error getting movies', error);
         alert('Could not EDIT at this time. Try again later ', error)
@@ -71,7 +73,7 @@ const movies = (state = [], action) => {
 }
 
 // Used to store the movie genres
-const genres = (state = [], action) => {
+const genres = (state = {}, action) => {
     switch (action.type) {
         case 'SET_DETAILS':
             return action.payload;

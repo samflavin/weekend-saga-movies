@@ -15,15 +15,16 @@ class Details extends Component {
 //fix state 
     state = {
         newEdit: {
-            comments: '',
-            movieTitle: ''
+            movie_id: this.props.reduxStore.genres.movie_id,
+            title: this.props.reduxStore.genres.title,
+            description: this.props.reduxStore.genres.description
         }
     }
 
     handleChangeFor = (propertyName, event) => {
         this.setState({
             newEdit: {
-               // ...this.state.newEdit,
+                 ...this.state.newEdit,
                 [propertyName]: event.target.value
             }
         })
@@ -40,14 +41,15 @@ class Details extends Component {
         <button>Cancel</button> 
         <button onClick={this.editMovie}>Save</button>
           
-         <p>Edit</p>
-        <textarea  placeholder="Movie" value={this.state.newEdit.movieTitle}
-                    onChange={(event) => this.handleChangeFor('movieTitle', event)}>Movie</textarea>
+                <p>Edit</p> 
+             <form>
+        <textarea  placeholder="Movie" 
+                    onChange={(event) => this.handleChangeFor('title', event)}>Movie</textarea>
 
-         <form>
+        
    
-         <textarea placeholder="Description"type="text" value={this.state.newEdit.comments}
-        onChange={(event) => this.handleChangeFor('comments', event)}></textarea>
+         <textarea placeholder="Description"type="text" 
+        onChange={(event) => this.handleChangeFor('description', event)}></textarea>
          </form>
 
             </div>

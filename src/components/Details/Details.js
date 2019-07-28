@@ -21,14 +21,12 @@ class Details extends Component {
                     <button onClick={this.editPage}>Edit</button>
                 </header>
                 <h1>Details</h1>
-               
-                {this.props.reduxStore.genres.map((item, i) =>
-                    <ul key={i}>
-                    <p>Genre: {item.name}</p>
-                    <img src={item.poster} alt={item.description}/>
-                    <li>{item.description}</li>
-                    </ul>
-                )}
+                    <div>
+                    <p>Genre: {this.props.reduxStore.genres.name}</p>
+                    <img src={this.props.reduxStore.genres.poster} alt={this.props.reduxStore.genres.description}/>
+                    <p>{this.props.reduxStore.genres.description}</p>
+                    </div>
+                
                 
           
             
