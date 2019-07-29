@@ -22,8 +22,8 @@ class App extends Component {
         </header>
         <Router >
           <AnimatedSwitch
-            atEnter={{ opacity: 0 }}
-            atLeave={{ opacity: 0 }}
+            atEnter={{ opacity: .5 }}
+            atLeave={{ opacity: .5 }}
             atActive={{ opacity: 1 }}
             className="switch-wrapper"
           >
